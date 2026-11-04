@@ -1,253 +1,232 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHOP CATALOG</title>
-  <style>
-    /* 全体設定 */
-    :root {
-      --bg-color: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --accent-color: #2b6cb0;
-      --tag-bg: #e2e8f0;
-      --border-color: #e2e8f0;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      padding: 20px 15px 60px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* フィルタータブ */
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--accent-color);
-      color: #fff;
-      border-color: var(--accent-color);
-    }
-
-    /* グリッドレイアウト */
-    .catalog-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    /* 商品カード */
-    .item-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .item-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .item-card.hidden {
-      display: none;
-    }
-
-    .thumbnail-container {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background-color: #edf2f7;
-      position: relative;
-    }
-
-    .thumbnail-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: var(--accent-color);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: bold;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .item-info {
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .item-title {
-      font-size: 0.95rem;
-      font-weight: bold;
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .item-desc {
-      font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 12px;
-      flex-grow: 1;
-    }
-
-    .item-price {
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: #e53e3e;
-      margin-bottom: 12px;
-    }
-
-    .buy-button {
-      display: block;
-      text-align: center;
-      background: var(--text-color);
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 0;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      transition: background 0.2s ease;
-    }
-
-    .buy-button:hover {
-      background: var(--accent-color);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ほうじ茶の同人CG店</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
 
-  <header>
-    <h1>マイショップ カタログ</h1>
-    <p>画像をクリックするとPictSPACEの頒布ページへ移動します</p>
-  </header>
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- ヘッダー：お店の名前 ＆ SNSリンク -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900 mb-2">🍵 ほうじ茶の同人CG店</h1>
+            <p class="text-slate-500 text-sm mb-4">デジタルコンテンツ特設カタログ</p>
+            
+            <div class="flex items-center justify-center gap-3">
+                <a href="https://x.com/gomikasu_pipo" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition flex items-center gap-1.5 shadow-sm">
+                    𝕏 Twitter
+                </a>
+                <a href="https://www.pixiv.net/users/10982318" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition flex items-center gap-1.5 shadow-sm">
+                    🎨 pixiv
+                </a>
+                <a href="https://discord.gg/PPHgePZqPK" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-500 transition flex items-center gap-1.5 shadow-sm">
+                    💬 Discord
+                </a>
+            </div>
+        </header>
 
-  <!-- カテゴリ切り替えボタン -->
-  <div class="filter-container">
-    <button class="filter-btn active" onclick="filterItems('all')">すべて</button>
-    <button class="filter-btn" onclick="filterItems('book')">同人誌</button>
-    <button class="filter-btn" onclick="filterItems('digital')">DL素材</button>
-    <button class="filter-btn" onclick="filterItems('goods')">グッズ</button>
-  </div>
+        <!-- 検索窓 & メインカテゴリフィルター -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+            <!-- 検索窓 -->
+            <div class="w-full md:w-72">
+                <input type="text" id="search-input" placeholder="キーワードで検索..." oninput="filterProducts()" 
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-rose-500 transition">
+            </div>
 
-  <!-- 商品一覧グリッド -->
-  <div class="catalog-grid">
+            <!-- メインカテゴリボタン -->
+            <div id="main-filter-buttons" class="flex flex-wrap gap-2">
+                <button onclick="setMainCategory('all')" class="main-btn active px-3.5 py-2 rounded-xl text-xs font-semibold bg-rose-500 text-white transition">すべて</button>
+                <button onclick="setMainCategory('precure')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">プリキュア</button>
+                <button onclick="setMainCategory('symphogear')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">シンフォギア</button>
+                <button onclick="setMainCategory('aikatsu')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">アイカツ</button>
+                <button onclick="setMainCategory('genshin')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">原神</button>
+                <button onclick="setMainCategory('vtuber')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">VTuber</button>
+                <button onclick="setMainCategory('toloveru')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">To LOVEる</button>
+                <button onclick="setMainCategory('other')" class="main-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">その他</button>
+            </div>
+        </div>
 
-    <!-- 商品カード1 -->
-    <div class="item-card" data-category="book">
-      <div class="thumbnail-container">
-        <span class="badge">NEW</span>
-        <img src="https://via.placeholder.com/300x300?text=Item+Image+1" alt="商品画像">
-      </div>
-      <div class="item-info">
-        <div class="item-title">新刊イラスト集「TITLE」</div>
-        <div class="item-desc">A4 / 24P / フルカラー。描き下ろしイラストを多数収録。</div>
-        <div class="item-price">¥1,000</div>
-        <a href="https://pictspace.net/items/detail/XXXXXX" target="_blank" class="buy-button">ピクスペで購入</a>
-      </div>
+        <!-- サブカテゴリ（細分化）フィルターバー -->
+        <div id="sub-filter-container" class="flex flex-wrap gap-2 mb-8 min-h-[38px] items-center">
+            <!-- 動的生成 -->
+        </div>
+
+        <!-- ローディング表示 -->
+        <div id="loading" class="text-center py-20 text-slate-400 font-medium">
+            データを読み込んでいます...
+        </div>
+
+        <!-- 商品カードグリッド -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
     </div>
 
-    <!-- 商品カード2 -->
-    <div class="item-card" data-category="digital">
-      <div class="thumbnail-container">
-        <img src="https://via.placeholder.com/300x300?text=Item+Image+2" alt="商品画像">
-      </div>
-      <div class="item-info">
-        <div class="item-title">3Dモデル・背景素材セット</div>
-        <div class="item-desc">FBX / OBJ形式。イラスト・商用利用OKな汎用背景。</div>
-        <div class="item-price">¥500</div>
-        <a href="https://pictspace.net/items/detail/XXXXXX" target="_blank" class="buy-button">ピクスペで購入</a>
-      </div>
-    </div>
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbzVJ8s7jV0r7blLD1Q9qmKO9RLxtr7JTIegI_iEMysOBKysfNdCReOrAHml3I9Baymw1w/exec";
+        let allProducts = [];
+        let currentMainCategory = 'all';
+        let currentSubCategory = 'all';
 
-    <!-- 商品カード3 -->
-    <div class="item-card" data-category="goods">
-      <div class="thumbnail-container">
-        <img src="https://via.placeholder.com/300x300?text=Item+Image+3" alt="商品画像">
-      </div>
-      <div class="item-info">
-        <div class="item-title">アクリルスタンド</div>
-        <div class="item-desc">約70mm×70mm / 台座付き。</div>
-        <div class="item-price">¥800</div>
-        <a href="https://pictspace.net/items/detail/XXXXXX" target="_blank" class="buy-button">ピクスペで購入</a>
-      </div>
-    </div>
+        const subCategoryNames = {
+            'mahotsukai': '魔法つかいプリキュア！',
+            'startwink': 'スタ☆トゥインクルプリキュア',
+            'hugtto': 'HUGっと！プリキュア',
+            'alamode': 'キラキラ☆プリキュアアラモード',
+            'princess': 'Go!プリンセスプリキュア',
+            'happiness': 'ハピネスチャージプリキュア！',
+            'dokidoki': 'ドキドキ！プリキュア',
+            'smile': 'スマイルプリキュア！',
+            'suite': 'スイートプリキュア♪',
+            'heartcatch': 'ハートキャッチプリキュア！',
+            'fresh': 'フレッシュプリキュア！',
+            'yes5': 'Yes!プリキュア5',
+            'futari': 'ふたりはプリキュア',
+            'detective': '名探偵プリキュア！',
+            'kimi': 'キミとアイドルプリキュア♪',
+            'wonderful': 'わんだふるぷりきゅあ！',
+            'hirogaru': 'ひろがるスカイ！プリキュア',
+            'delicious': 'デリシャスパーティ♡プリキュア',
+            'tropical': 'トロピカル～ジュ！プリキュア',
+            'rezero': 'Re:ゼロから始める異世界生活',
+            'mushoku': '無職転生',
+            'sao': 'ソードアート・オンライン'
+        };
 
-  </div>
-
-  <script>
-    // 絞り込み用JavaScript
-    function filterItems(category) {
-      // ボタンのアクティブ化
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.currentTarget.classList.add('active');
-
-      // カードの表示/非表示切り替え
-      const cards = document.querySelectorAll('.item-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
+        function getSubDisplayName(subCode) {
+            if (!subCode) return '';
+            return subCategoryNames[subCode.trim()] || subCode.trim();
         }
-      });
-    }
-  </script>
 
+        function cleanUrl(url) {
+            if (!url) return '#';
+            let cleaned = url.trim();
+            cleaned = cleaned.replace(/www\.pictspace\.net/g, 'pictspace.net');
+            if (cleaned.includes('pictspace.net') && !cleaned.startsWith('http')) {
+                cleaned = 'https://' + cleaned.replace(/^.*?pictspace\.net/, 'pictspace.net');
+            }
+            return cleaned;
+        }
+
+        async function fetchProducts() {
+            try {
+                const response = await fetch(GAS_URL);
+                const rawData = await response.json();
+                
+                allProducts = rawData.map(p => ({
+                    ...p,
+                    url: cleanUrl(p.url)
+                }));
+
+                document.getElementById('loading').style.display = 'none';
+                renderSubCategories('all');
+                filterProducts();
+            } catch (error) {
+                console.error("データの取得に失敗しました:", error);
+                document.getElementById('loading').innerText = "データの取得に失敗しました。（スプレッドシートの公開状態やURLを確認してください）";
+            }
+        }
+
+        function setMainCategory(category) {
+            currentMainCategory = category;
+            currentSubCategory = 'all';
+
+            document.querySelectorAll('.main-btn').forEach(btn => {
+                btn.classList.remove('bg-rose-500', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            event.target.classList.remove('bg-slate-100', 'text-slate-600');
+            event.target.classList.add('bg-rose-500', 'text-white');
+
+            renderSubCategories(category);
+            filterProducts();
+        }
+
+        function renderSubCategories(mainCat) {
+            const container = document.getElementById('sub-filter-container');
+            container.innerHTML = '';
+
+            let subs = [];
+            if (mainCat === 'all') {
+                subs = [...new Set(allProducts.map(p => p.sub).filter(s => s && s.trim() !== ''))];
+            } else {
+                subs = [...new Set(allProducts.filter(p => p.category === mainCat).map(p => p.sub).filter(s => s && s.trim() !== ''))];
+            }
+
+            if (subs.length === 0) return;
+
+            let html = `<button onclick="setSubCategory('all')" class="sub-btn active px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-white transition">すべて</button>`;
+            
+            subs.forEach(sub => {
+                const displayName = getSubDisplayName(sub);
+                html += `<button onclick="setSubCategory('${sub}')" class="sub-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition">${displayName}</button>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+    function setSubCategory(sub) {
+            currentSubCategory = sub;
+            document.querySelectorAll('.sub-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            event.target.classList.add('bg-slate-800', 'text-white');
+
+            filterProducts();
+        }
+
+        function filterProducts() {
+            const keyword = document.getElementById('search-input').value.toLowerCase();
+
+            const filtered = allProducts.filter(p => {
+                const matchMain = (currentMainCategory === 'all' || p.category === currentMainCategory);
+                const matchSub = (currentSubCategory === 'all' || p.sub === currentSubCategory);
+                const matchKeyword = (!keyword || (p.title && p.title.toLowerCase().includes(keyword)));
+
+                return matchMain && matchSub && matchKeyword;
+            });
+
+            renderProducts(filtered);
+        }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            if (products.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-slate-400 py-12">該当する商品が見つかりませんでした。</p>';
+                return;
+            }
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between hover:shadow-md transition group";
+                
+                const subDisplay = p.sub ? ' / ' + getSubDisplayName(p.sub) : '';
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600">${p.category || 'other'}${subDisplay}</span>
+                            <span class="text-xs text-slate-400 font-mono">#${p.id}</span>
+                        </div>
+                        <h2 class="font-medium text-slate-800 text-xs mb-4 leading-relaxed group-hover:text-rose-600 transition">${p.title}</h2>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-rose-600 font-bold text-xs">${p.price || '価格未設定'}</span>
+                        <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold bg-rose-500 text-white px-3 py-1.5 rounded-xl hover:bg-rose-600 transition shadow-sm">
+                            詳細
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        fetchProducts();
+    </script>
 </body>
 </html>
